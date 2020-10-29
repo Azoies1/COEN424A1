@@ -1,13 +1,13 @@
 package com.company;
 
-public class Workload {
+public class WorkloadProto {
 
     private int cpuUtil;
     private double networkIn;
     private double networkOut;
     private double memUtil;
 
-    public Workload(int cpuUtil, double networkIn, double networkOut, double memUtil) {
+    public WorkloadProto(int cpuUtil, double networkIn, double networkOut, double memUtil) {
         this.cpuUtil = cpuUtil;
         this.networkIn = networkIn;
         this.networkOut = networkOut;
