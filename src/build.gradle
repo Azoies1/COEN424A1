@@ -1,0 +1,9 @@
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'com.google.protobuf:protobuf-java:3.11.0'
+}

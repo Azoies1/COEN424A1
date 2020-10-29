@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package company;
+
+option java_package = "com.company";
+option java_outer_classname = "WorkloadProto";
+
+message WorkloadItem{
+  int32 cpuUtil = 1;
+  int32 networkIn = 2;
+  int32 networkOut = 3;
+  double memUtil = 4;
+}
+
+message clientRFW{
+  int32 RFWId = 1;
+  int32 benchType = 2;
+  string workLoad = 3;
+  int32 batchUnit = 4;
+  int32 batchId = 5;
+  int32 batchSize = 6;
+}
+
+message serverRFD{
+  int32 RFWId =1;
+  int32 lastBatchId = 2;
+  repeated WorkloadItem item = 3;
+}
+
+
