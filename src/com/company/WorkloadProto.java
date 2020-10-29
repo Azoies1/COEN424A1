@@ -14,8 +14,8 @@ public final class WorkloadProto {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface WorkloadOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Workload)
+  public interface WorkloadItemOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:company.WorkloadItem)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -37,31 +37,31 @@ public final class WorkloadProto {
     int getNetworkOut();
 
     /**
-     * <code>int32 memUtil = 4;</code>
+     * <code>double memUtil = 4;</code>
      * @return The memUtil.
      */
-    int getMemUtil();
+    double getMemUtil();
   }
   /**
-   * Protobuf type {@code Workload}
+   * Protobuf type {@code company.WorkloadItem}
    */
-  public static final class Workload extends
+  public static final class WorkloadItem extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Workload)
-      WorkloadOrBuilder {
+      // @@protoc_insertion_point(message_implements:company.WorkloadItem)
+      WorkloadItemOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use Workload.newBuilder() to construct.
-    private Workload(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use WorkloadItem.newBuilder() to construct.
+    private WorkloadItem(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Workload() {
+    private WorkloadItem() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new Workload();
+      return new WorkloadItem();
     }
 
     @java.lang.Override
@@ -69,7 +69,7 @@ public final class WorkloadProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Workload(
+    private WorkloadItem(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -102,9 +102,9 @@ public final class WorkloadProto {
               networkOut_ = input.readInt32();
               break;
             }
-            case 32: {
+            case 33: {
 
-              memUtil_ = input.readInt32();
+              memUtil_ = input.readDouble();
               break;
             }
             default: {
@@ -128,15 +128,15 @@ public final class WorkloadProto {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.company.WorkloadProto.internal_static_Workload_descriptor;
+      return com.company.WorkloadProto.internal_static_company_WorkloadItem_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.company.WorkloadProto.internal_static_Workload_fieldAccessorTable
+      return com.company.WorkloadProto.internal_static_company_WorkloadItem_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.company.WorkloadProto.Workload.class, com.company.WorkloadProto.Workload.Builder.class);
+              com.company.WorkloadProto.WorkloadItem.class, com.company.WorkloadProto.WorkloadItem.Builder.class);
     }
 
     public static final int CPUUTIL_FIELD_NUMBER = 1;
@@ -173,13 +173,13 @@ public final class WorkloadProto {
     }
 
     public static final int MEMUTIL_FIELD_NUMBER = 4;
-    private int memUtil_;
+    private double memUtil_;
     /**
-     * <code>int32 memUtil = 4;</code>
+     * <code>double memUtil = 4;</code>
      * @return The memUtil.
      */
     @java.lang.Override
-    public int getMemUtil() {
+    public double getMemUtil() {
       return memUtil_;
     }
 
@@ -206,8 +206,8 @@ public final class WorkloadProto {
       if (networkOut_ != 0) {
         output.writeInt32(3, networkOut_);
       }
-      if (memUtil_ != 0) {
-        output.writeInt32(4, memUtil_);
+      if (memUtil_ != 0D) {
+        output.writeDouble(4, memUtil_);
       }
       unknownFields.writeTo(output);
     }
@@ -230,9 +230,9 @@ public final class WorkloadProto {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, networkOut_);
       }
-      if (memUtil_ != 0) {
+      if (memUtil_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, memUtil_);
+          .computeDoubleSize(4, memUtil_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -244,10 +244,10 @@ public final class WorkloadProto {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.company.WorkloadProto.Workload)) {
+      if (!(obj instanceof com.company.WorkloadProto.WorkloadItem)) {
         return super.equals(obj);
       }
-      com.company.WorkloadProto.Workload other = (com.company.WorkloadProto.Workload) obj;
+      com.company.WorkloadProto.WorkloadItem other = (com.company.WorkloadProto.WorkloadItem) obj;
 
       if (getCpuUtil()
           != other.getCpuUtil()) return false;
@@ -255,8 +255,9 @@ public final class WorkloadProto {
           != other.getNetworkIn()) return false;
       if (getNetworkOut()
           != other.getNetworkOut()) return false;
-      if (getMemUtil()
-          != other.getMemUtil()) return false;
+      if (java.lang.Double.doubleToLongBits(getMemUtil())
+          != java.lang.Double.doubleToLongBits(
+              other.getMemUtil())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -275,75 +276,76 @@ public final class WorkloadProto {
       hash = (37 * hash) + NETWORKOUT_FIELD_NUMBER;
       hash = (53 * hash) + getNetworkOut();
       hash = (37 * hash) + MEMUTIL_FIELD_NUMBER;
-      hash = (53 * hash) + getMemUtil();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getMemUtil()));
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.company.WorkloadProto.Workload parseFrom(
+    public static com.company.WorkloadProto.WorkloadItem parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.company.WorkloadProto.Workload parseFrom(
+    public static com.company.WorkloadProto.WorkloadItem parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.company.WorkloadProto.Workload parseFrom(
+    public static com.company.WorkloadProto.WorkloadItem parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.company.WorkloadProto.Workload parseFrom(
+    public static com.company.WorkloadProto.WorkloadItem parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.company.WorkloadProto.Workload parseFrom(byte[] data)
+    public static com.company.WorkloadProto.WorkloadItem parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.company.WorkloadProto.Workload parseFrom(
+    public static com.company.WorkloadProto.WorkloadItem parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.company.WorkloadProto.Workload parseFrom(java.io.InputStream input)
+    public static com.company.WorkloadProto.WorkloadItem parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.company.WorkloadProto.Workload parseFrom(
+    public static com.company.WorkloadProto.WorkloadItem parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.company.WorkloadProto.Workload parseDelimitedFrom(java.io.InputStream input)
+    public static com.company.WorkloadProto.WorkloadItem parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.company.WorkloadProto.Workload parseDelimitedFrom(
+    public static com.company.WorkloadProto.WorkloadItem parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.company.WorkloadProto.Workload parseFrom(
+    public static com.company.WorkloadProto.WorkloadItem parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.company.WorkloadProto.Workload parseFrom(
+    public static com.company.WorkloadProto.WorkloadItem parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -356,7 +358,7 @@ public final class WorkloadProto {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.company.WorkloadProto.Workload prototype) {
+    public static Builder newBuilder(com.company.WorkloadProto.WorkloadItem prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -372,26 +374,26 @@ public final class WorkloadProto {
       return builder;
     }
     /**
-     * Protobuf type {@code Workload}
+     * Protobuf type {@code company.WorkloadItem}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Workload)
-        com.company.WorkloadProto.WorkloadOrBuilder {
+        // @@protoc_insertion_point(builder_implements:company.WorkloadItem)
+        com.company.WorkloadProto.WorkloadItemOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.company.WorkloadProto.internal_static_Workload_descriptor;
+        return com.company.WorkloadProto.internal_static_company_WorkloadItem_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.company.WorkloadProto.internal_static_Workload_fieldAccessorTable
+        return com.company.WorkloadProto.internal_static_company_WorkloadItem_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.company.WorkloadProto.Workload.class, com.company.WorkloadProto.Workload.Builder.class);
+                com.company.WorkloadProto.WorkloadItem.class, com.company.WorkloadProto.WorkloadItem.Builder.class);
       }
 
-      // Construct using com.company.WorkloadProto.Workload.newBuilder()
+      // Construct using com.company.WorkloadProto.WorkloadItem.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -415,7 +417,7 @@ public final class WorkloadProto {
 
         networkOut_ = 0;
 
-        memUtil_ = 0;
+        memUtil_ = 0D;
 
         return this;
       }
@@ -423,17 +425,17 @@ public final class WorkloadProto {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.company.WorkloadProto.internal_static_Workload_descriptor;
+        return com.company.WorkloadProto.internal_static_company_WorkloadItem_descriptor;
       }
 
       @java.lang.Override
-      public com.company.WorkloadProto.Workload getDefaultInstanceForType() {
-        return com.company.WorkloadProto.Workload.getDefaultInstance();
+      public com.company.WorkloadProto.WorkloadItem getDefaultInstanceForType() {
+        return com.company.WorkloadProto.WorkloadItem.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.company.WorkloadProto.Workload build() {
-        com.company.WorkloadProto.Workload result = buildPartial();
+      public com.company.WorkloadProto.WorkloadItem build() {
+        com.company.WorkloadProto.WorkloadItem result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -441,8 +443,8 @@ public final class WorkloadProto {
       }
 
       @java.lang.Override
-      public com.company.WorkloadProto.Workload buildPartial() {
-        com.company.WorkloadProto.Workload result = new com.company.WorkloadProto.Workload(this);
+      public com.company.WorkloadProto.WorkloadItem buildPartial() {
+        com.company.WorkloadProto.WorkloadItem result = new com.company.WorkloadProto.WorkloadItem(this);
         result.cpuUtil_ = cpuUtil_;
         result.networkIn_ = networkIn_;
         result.networkOut_ = networkOut_;
@@ -485,16 +487,16 @@ public final class WorkloadProto {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.company.WorkloadProto.Workload) {
-          return mergeFrom((com.company.WorkloadProto.Workload)other);
+        if (other instanceof com.company.WorkloadProto.WorkloadItem) {
+          return mergeFrom((com.company.WorkloadProto.WorkloadItem)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.company.WorkloadProto.Workload other) {
-        if (other == com.company.WorkloadProto.Workload.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.company.WorkloadProto.WorkloadItem other) {
+        if (other == com.company.WorkloadProto.WorkloadItem.getDefaultInstance()) return this;
         if (other.getCpuUtil() != 0) {
           setCpuUtil(other.getCpuUtil());
         }
@@ -504,7 +506,7 @@ public final class WorkloadProto {
         if (other.getNetworkOut() != 0) {
           setNetworkOut(other.getNetworkOut());
         }
-        if (other.getMemUtil() != 0) {
+        if (other.getMemUtil() != 0D) {
           setMemUtil(other.getMemUtil());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -522,11 +524,11 @@ public final class WorkloadProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.company.WorkloadProto.Workload parsedMessage = null;
+        com.company.WorkloadProto.WorkloadItem parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.company.WorkloadProto.Workload) e.getUnfinishedMessage();
+          parsedMessage = (com.company.WorkloadProto.WorkloadItem) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -629,33 +631,33 @@ public final class WorkloadProto {
         return this;
       }
 
-      private int memUtil_ ;
+      private double memUtil_ ;
       /**
-       * <code>int32 memUtil = 4;</code>
+       * <code>double memUtil = 4;</code>
        * @return The memUtil.
        */
       @java.lang.Override
-      public int getMemUtil() {
+      public double getMemUtil() {
         return memUtil_;
       }
       /**
-       * <code>int32 memUtil = 4;</code>
+       * <code>double memUtil = 4;</code>
        * @param value The memUtil to set.
        * @return This builder for chaining.
        */
-      public Builder setMemUtil(int value) {
+      public Builder setMemUtil(double value) {
         
         memUtil_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 memUtil = 4;</code>
+       * <code>double memUtil = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearMemUtil() {
         
-        memUtil_ = 0;
+        memUtil_ = 0D;
         onChanged();
         return this;
       }
@@ -672,51 +674,1912 @@ public final class WorkloadProto {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Workload)
+      // @@protoc_insertion_point(builder_scope:company.WorkloadItem)
     }
 
-    // @@protoc_insertion_point(class_scope:Workload)
-    private static final com.company.WorkloadProto.Workload DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:company.WorkloadItem)
+    private static final com.company.WorkloadProto.WorkloadItem DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.company.WorkloadProto.Workload();
+      DEFAULT_INSTANCE = new com.company.WorkloadProto.WorkloadItem();
     }
 
-    public static com.company.WorkloadProto.Workload getDefaultInstance() {
+    public static com.company.WorkloadProto.WorkloadItem getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Workload>
-        PARSER = new com.google.protobuf.AbstractParser<Workload>() {
+    private static final com.google.protobuf.Parser<WorkloadItem>
+        PARSER = new com.google.protobuf.AbstractParser<WorkloadItem>() {
       @java.lang.Override
-      public Workload parsePartialFrom(
+      public WorkloadItem parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Workload(input, extensionRegistry);
+        return new WorkloadItem(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<Workload> parser() {
+    public static com.google.protobuf.Parser<WorkloadItem> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Workload> getParserForType() {
+    public com.google.protobuf.Parser<WorkloadItem> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.company.WorkloadProto.Workload getDefaultInstanceForType() {
+    public com.company.WorkloadProto.WorkloadItem getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface clientRFWOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:company.clientRFW)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 RFWId = 1;</code>
+     * @return The rFWId.
+     */
+    int getRFWId();
+
+    /**
+     * <code>int32 benchType = 2;</code>
+     * @return The benchType.
+     */
+    int getBenchType();
+
+    /**
+     * <code>string workLoad = 3;</code>
+     * @return The workLoad.
+     */
+    java.lang.String getWorkLoad();
+    /**
+     * <code>string workLoad = 3;</code>
+     * @return The bytes for workLoad.
+     */
+    com.google.protobuf.ByteString
+        getWorkLoadBytes();
+
+    /**
+     * <code>int32 batchUnit = 4;</code>
+     * @return The batchUnit.
+     */
+    int getBatchUnit();
+
+    /**
+     * <code>int32 batchId = 5;</code>
+     * @return The batchId.
+     */
+    int getBatchId();
+
+    /**
+     * <code>int32 batchSize = 6;</code>
+     * @return The batchSize.
+     */
+    int getBatchSize();
+  }
+  /**
+   * Protobuf type {@code company.clientRFW}
+   */
+  public static final class clientRFW extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:company.clientRFW)
+      clientRFWOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use clientRFW.newBuilder() to construct.
+    private clientRFW(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private clientRFW() {
+      workLoad_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new clientRFW();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private clientRFW(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              rFWId_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              benchType_ = input.readInt32();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              workLoad_ = s;
+              break;
+            }
+            case 32: {
+
+              batchUnit_ = input.readInt32();
+              break;
+            }
+            case 40: {
+
+              batchId_ = input.readInt32();
+              break;
+            }
+            case 48: {
+
+              batchSize_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.company.WorkloadProto.internal_static_company_clientRFW_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.company.WorkloadProto.internal_static_company_clientRFW_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.company.WorkloadProto.clientRFW.class, com.company.WorkloadProto.clientRFW.Builder.class);
+    }
+
+    public static final int RFWID_FIELD_NUMBER = 1;
+    private int rFWId_;
+    /**
+     * <code>int32 RFWId = 1;</code>
+     * @return The rFWId.
+     */
+    @java.lang.Override
+    public int getRFWId() {
+      return rFWId_;
+    }
+
+    public static final int BENCHTYPE_FIELD_NUMBER = 2;
+    private int benchType_;
+    /**
+     * <code>int32 benchType = 2;</code>
+     * @return The benchType.
+     */
+    @java.lang.Override
+    public int getBenchType() {
+      return benchType_;
+    }
+
+    public static final int WORKLOAD_FIELD_NUMBER = 3;
+    private volatile java.lang.Object workLoad_;
+    /**
+     * <code>string workLoad = 3;</code>
+     * @return The workLoad.
+     */
+    @java.lang.Override
+    public java.lang.String getWorkLoad() {
+      java.lang.Object ref = workLoad_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        workLoad_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string workLoad = 3;</code>
+     * @return The bytes for workLoad.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getWorkLoadBytes() {
+      java.lang.Object ref = workLoad_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        workLoad_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BATCHUNIT_FIELD_NUMBER = 4;
+    private int batchUnit_;
+    /**
+     * <code>int32 batchUnit = 4;</code>
+     * @return The batchUnit.
+     */
+    @java.lang.Override
+    public int getBatchUnit() {
+      return batchUnit_;
+    }
+
+    public static final int BATCHID_FIELD_NUMBER = 5;
+    private int batchId_;
+    /**
+     * <code>int32 batchId = 5;</code>
+     * @return The batchId.
+     */
+    @java.lang.Override
+    public int getBatchId() {
+      return batchId_;
+    }
+
+    public static final int BATCHSIZE_FIELD_NUMBER = 6;
+    private int batchSize_;
+    /**
+     * <code>int32 batchSize = 6;</code>
+     * @return The batchSize.
+     */
+    @java.lang.Override
+    public int getBatchSize() {
+      return batchSize_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (rFWId_ != 0) {
+        output.writeInt32(1, rFWId_);
+      }
+      if (benchType_ != 0) {
+        output.writeInt32(2, benchType_);
+      }
+      if (!getWorkLoadBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, workLoad_);
+      }
+      if (batchUnit_ != 0) {
+        output.writeInt32(4, batchUnit_);
+      }
+      if (batchId_ != 0) {
+        output.writeInt32(5, batchId_);
+      }
+      if (batchSize_ != 0) {
+        output.writeInt32(6, batchSize_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (rFWId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, rFWId_);
+      }
+      if (benchType_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, benchType_);
+      }
+      if (!getWorkLoadBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, workLoad_);
+      }
+      if (batchUnit_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, batchUnit_);
+      }
+      if (batchId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, batchId_);
+      }
+      if (batchSize_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, batchSize_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.company.WorkloadProto.clientRFW)) {
+        return super.equals(obj);
+      }
+      com.company.WorkloadProto.clientRFW other = (com.company.WorkloadProto.clientRFW) obj;
+
+      if (getRFWId()
+          != other.getRFWId()) return false;
+      if (getBenchType()
+          != other.getBenchType()) return false;
+      if (!getWorkLoad()
+          .equals(other.getWorkLoad())) return false;
+      if (getBatchUnit()
+          != other.getBatchUnit()) return false;
+      if (getBatchId()
+          != other.getBatchId()) return false;
+      if (getBatchSize()
+          != other.getBatchSize()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + RFWID_FIELD_NUMBER;
+      hash = (53 * hash) + getRFWId();
+      hash = (37 * hash) + BENCHTYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getBenchType();
+      hash = (37 * hash) + WORKLOAD_FIELD_NUMBER;
+      hash = (53 * hash) + getWorkLoad().hashCode();
+      hash = (37 * hash) + BATCHUNIT_FIELD_NUMBER;
+      hash = (53 * hash) + getBatchUnit();
+      hash = (37 * hash) + BATCHID_FIELD_NUMBER;
+      hash = (53 * hash) + getBatchId();
+      hash = (37 * hash) + BATCHSIZE_FIELD_NUMBER;
+      hash = (53 * hash) + getBatchSize();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.company.WorkloadProto.clientRFW parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.company.WorkloadProto.clientRFW parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.company.WorkloadProto.clientRFW parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.company.WorkloadProto.clientRFW parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.company.WorkloadProto.clientRFW parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.company.WorkloadProto.clientRFW parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.company.WorkloadProto.clientRFW parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.company.WorkloadProto.clientRFW parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.company.WorkloadProto.clientRFW parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.company.WorkloadProto.clientRFW parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.company.WorkloadProto.clientRFW parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.company.WorkloadProto.clientRFW parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.company.WorkloadProto.clientRFW prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code company.clientRFW}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:company.clientRFW)
+        com.company.WorkloadProto.clientRFWOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.company.WorkloadProto.internal_static_company_clientRFW_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.company.WorkloadProto.internal_static_company_clientRFW_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.company.WorkloadProto.clientRFW.class, com.company.WorkloadProto.clientRFW.Builder.class);
+      }
+
+      // Construct using com.company.WorkloadProto.clientRFW.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        rFWId_ = 0;
+
+        benchType_ = 0;
+
+        workLoad_ = "";
+
+        batchUnit_ = 0;
+
+        batchId_ = 0;
+
+        batchSize_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.company.WorkloadProto.internal_static_company_clientRFW_descriptor;
+      }
+
+      @java.lang.Override
+      public com.company.WorkloadProto.clientRFW getDefaultInstanceForType() {
+        return com.company.WorkloadProto.clientRFW.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.company.WorkloadProto.clientRFW build() {
+        com.company.WorkloadProto.clientRFW result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.company.WorkloadProto.clientRFW buildPartial() {
+        com.company.WorkloadProto.clientRFW result = new com.company.WorkloadProto.clientRFW(this);
+        result.rFWId_ = rFWId_;
+        result.benchType_ = benchType_;
+        result.workLoad_ = workLoad_;
+        result.batchUnit_ = batchUnit_;
+        result.batchId_ = batchId_;
+        result.batchSize_ = batchSize_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.company.WorkloadProto.clientRFW) {
+          return mergeFrom((com.company.WorkloadProto.clientRFW)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.company.WorkloadProto.clientRFW other) {
+        if (other == com.company.WorkloadProto.clientRFW.getDefaultInstance()) return this;
+        if (other.getRFWId() != 0) {
+          setRFWId(other.getRFWId());
+        }
+        if (other.getBenchType() != 0) {
+          setBenchType(other.getBenchType());
+        }
+        if (!other.getWorkLoad().isEmpty()) {
+          workLoad_ = other.workLoad_;
+          onChanged();
+        }
+        if (other.getBatchUnit() != 0) {
+          setBatchUnit(other.getBatchUnit());
+        }
+        if (other.getBatchId() != 0) {
+          setBatchId(other.getBatchId());
+        }
+        if (other.getBatchSize() != 0) {
+          setBatchSize(other.getBatchSize());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.company.WorkloadProto.clientRFW parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.company.WorkloadProto.clientRFW) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int rFWId_ ;
+      /**
+       * <code>int32 RFWId = 1;</code>
+       * @return The rFWId.
+       */
+      @java.lang.Override
+      public int getRFWId() {
+        return rFWId_;
+      }
+      /**
+       * <code>int32 RFWId = 1;</code>
+       * @param value The rFWId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRFWId(int value) {
+        
+        rFWId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 RFWId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRFWId() {
+        
+        rFWId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int benchType_ ;
+      /**
+       * <code>int32 benchType = 2;</code>
+       * @return The benchType.
+       */
+      @java.lang.Override
+      public int getBenchType() {
+        return benchType_;
+      }
+      /**
+       * <code>int32 benchType = 2;</code>
+       * @param value The benchType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBenchType(int value) {
+        
+        benchType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 benchType = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBenchType() {
+        
+        benchType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object workLoad_ = "";
+      /**
+       * <code>string workLoad = 3;</code>
+       * @return The workLoad.
+       */
+      public java.lang.String getWorkLoad() {
+        java.lang.Object ref = workLoad_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          workLoad_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string workLoad = 3;</code>
+       * @return The bytes for workLoad.
+       */
+      public com.google.protobuf.ByteString
+          getWorkLoadBytes() {
+        java.lang.Object ref = workLoad_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          workLoad_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string workLoad = 3;</code>
+       * @param value The workLoad to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWorkLoad(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        workLoad_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string workLoad = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWorkLoad() {
+        
+        workLoad_ = getDefaultInstance().getWorkLoad();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string workLoad = 3;</code>
+       * @param value The bytes for workLoad to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWorkLoadBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        workLoad_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int batchUnit_ ;
+      /**
+       * <code>int32 batchUnit = 4;</code>
+       * @return The batchUnit.
+       */
+      @java.lang.Override
+      public int getBatchUnit() {
+        return batchUnit_;
+      }
+      /**
+       * <code>int32 batchUnit = 4;</code>
+       * @param value The batchUnit to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBatchUnit(int value) {
+        
+        batchUnit_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 batchUnit = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBatchUnit() {
+        
+        batchUnit_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int batchId_ ;
+      /**
+       * <code>int32 batchId = 5;</code>
+       * @return The batchId.
+       */
+      @java.lang.Override
+      public int getBatchId() {
+        return batchId_;
+      }
+      /**
+       * <code>int32 batchId = 5;</code>
+       * @param value The batchId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBatchId(int value) {
+        
+        batchId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 batchId = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBatchId() {
+        
+        batchId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int batchSize_ ;
+      /**
+       * <code>int32 batchSize = 6;</code>
+       * @return The batchSize.
+       */
+      @java.lang.Override
+      public int getBatchSize() {
+        return batchSize_;
+      }
+      /**
+       * <code>int32 batchSize = 6;</code>
+       * @param value The batchSize to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBatchSize(int value) {
+        
+        batchSize_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 batchSize = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBatchSize() {
+        
+        batchSize_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:company.clientRFW)
+    }
+
+    // @@protoc_insertion_point(class_scope:company.clientRFW)
+    private static final com.company.WorkloadProto.clientRFW DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.company.WorkloadProto.clientRFW();
+    }
+
+    public static com.company.WorkloadProto.clientRFW getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<clientRFW>
+        PARSER = new com.google.protobuf.AbstractParser<clientRFW>() {
+      @java.lang.Override
+      public clientRFW parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new clientRFW(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<clientRFW> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<clientRFW> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.company.WorkloadProto.clientRFW getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface serverRFDOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:company.serverRFD)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 RFWId = 1;</code>
+     * @return The rFWId.
+     */
+    int getRFWId();
+
+    /**
+     * <code>int32 lastBatchId = 2;</code>
+     * @return The lastBatchId.
+     */
+    int getLastBatchId();
+
+    /**
+     * <code>repeated .company.WorkloadItem item = 3;</code>
+     */
+    java.util.List<com.company.WorkloadProto.WorkloadItem> 
+        getItemList();
+    /**
+     * <code>repeated .company.WorkloadItem item = 3;</code>
+     */
+    com.company.WorkloadProto.WorkloadItem getItem(int index);
+    /**
+     * <code>repeated .company.WorkloadItem item = 3;</code>
+     */
+    int getItemCount();
+    /**
+     * <code>repeated .company.WorkloadItem item = 3;</code>
+     */
+    java.util.List<? extends com.company.WorkloadProto.WorkloadItemOrBuilder> 
+        getItemOrBuilderList();
+    /**
+     * <code>repeated .company.WorkloadItem item = 3;</code>
+     */
+    com.company.WorkloadProto.WorkloadItemOrBuilder getItemOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code company.serverRFD}
+   */
+  public static final class serverRFD extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:company.serverRFD)
+      serverRFDOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use serverRFD.newBuilder() to construct.
+    private serverRFD(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private serverRFD() {
+      item_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new serverRFD();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private serverRFD(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              rFWId_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              lastBatchId_ = input.readInt32();
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                item_ = new java.util.ArrayList<com.company.WorkloadProto.WorkloadItem>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              item_.add(
+                  input.readMessage(com.company.WorkloadProto.WorkloadItem.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          item_ = java.util.Collections.unmodifiableList(item_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.company.WorkloadProto.internal_static_company_serverRFD_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.company.WorkloadProto.internal_static_company_serverRFD_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.company.WorkloadProto.serverRFD.class, com.company.WorkloadProto.serverRFD.Builder.class);
+    }
+
+    public static final int RFWID_FIELD_NUMBER = 1;
+    private int rFWId_;
+    /**
+     * <code>int32 RFWId = 1;</code>
+     * @return The rFWId.
+     */
+    @java.lang.Override
+    public int getRFWId() {
+      return rFWId_;
+    }
+
+    public static final int LASTBATCHID_FIELD_NUMBER = 2;
+    private int lastBatchId_;
+    /**
+     * <code>int32 lastBatchId = 2;</code>
+     * @return The lastBatchId.
+     */
+    @java.lang.Override
+    public int getLastBatchId() {
+      return lastBatchId_;
+    }
+
+    public static final int ITEM_FIELD_NUMBER = 3;
+    private java.util.List<com.company.WorkloadProto.WorkloadItem> item_;
+    /**
+     * <code>repeated .company.WorkloadItem item = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.company.WorkloadProto.WorkloadItem> getItemList() {
+      return item_;
+    }
+    /**
+     * <code>repeated .company.WorkloadItem item = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.company.WorkloadProto.WorkloadItemOrBuilder> 
+        getItemOrBuilderList() {
+      return item_;
+    }
+    /**
+     * <code>repeated .company.WorkloadItem item = 3;</code>
+     */
+    @java.lang.Override
+    public int getItemCount() {
+      return item_.size();
+    }
+    /**
+     * <code>repeated .company.WorkloadItem item = 3;</code>
+     */
+    @java.lang.Override
+    public com.company.WorkloadProto.WorkloadItem getItem(int index) {
+      return item_.get(index);
+    }
+    /**
+     * <code>repeated .company.WorkloadItem item = 3;</code>
+     */
+    @java.lang.Override
+    public com.company.WorkloadProto.WorkloadItemOrBuilder getItemOrBuilder(
+        int index) {
+      return item_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (rFWId_ != 0) {
+        output.writeInt32(1, rFWId_);
+      }
+      if (lastBatchId_ != 0) {
+        output.writeInt32(2, lastBatchId_);
+      }
+      for (int i = 0; i < item_.size(); i++) {
+        output.writeMessage(3, item_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (rFWId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, rFWId_);
+      }
+      if (lastBatchId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, lastBatchId_);
+      }
+      for (int i = 0; i < item_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, item_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.company.WorkloadProto.serverRFD)) {
+        return super.equals(obj);
+      }
+      com.company.WorkloadProto.serverRFD other = (com.company.WorkloadProto.serverRFD) obj;
+
+      if (getRFWId()
+          != other.getRFWId()) return false;
+      if (getLastBatchId()
+          != other.getLastBatchId()) return false;
+      if (!getItemList()
+          .equals(other.getItemList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + RFWID_FIELD_NUMBER;
+      hash = (53 * hash) + getRFWId();
+      hash = (37 * hash) + LASTBATCHID_FIELD_NUMBER;
+      hash = (53 * hash) + getLastBatchId();
+      if (getItemCount() > 0) {
+        hash = (37 * hash) + ITEM_FIELD_NUMBER;
+        hash = (53 * hash) + getItemList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.company.WorkloadProto.serverRFD parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.company.WorkloadProto.serverRFD parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.company.WorkloadProto.serverRFD parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.company.WorkloadProto.serverRFD parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.company.WorkloadProto.serverRFD parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.company.WorkloadProto.serverRFD parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.company.WorkloadProto.serverRFD parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.company.WorkloadProto.serverRFD parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.company.WorkloadProto.serverRFD parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.company.WorkloadProto.serverRFD parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.company.WorkloadProto.serverRFD parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.company.WorkloadProto.serverRFD parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.company.WorkloadProto.serverRFD prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code company.serverRFD}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:company.serverRFD)
+        com.company.WorkloadProto.serverRFDOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.company.WorkloadProto.internal_static_company_serverRFD_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.company.WorkloadProto.internal_static_company_serverRFD_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.company.WorkloadProto.serverRFD.class, com.company.WorkloadProto.serverRFD.Builder.class);
+      }
+
+      // Construct using com.company.WorkloadProto.serverRFD.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getItemFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        rFWId_ = 0;
+
+        lastBatchId_ = 0;
+
+        if (itemBuilder_ == null) {
+          item_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          itemBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.company.WorkloadProto.internal_static_company_serverRFD_descriptor;
+      }
+
+      @java.lang.Override
+      public com.company.WorkloadProto.serverRFD getDefaultInstanceForType() {
+        return com.company.WorkloadProto.serverRFD.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.company.WorkloadProto.serverRFD build() {
+        com.company.WorkloadProto.serverRFD result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.company.WorkloadProto.serverRFD buildPartial() {
+        com.company.WorkloadProto.serverRFD result = new com.company.WorkloadProto.serverRFD(this);
+        int from_bitField0_ = bitField0_;
+        result.rFWId_ = rFWId_;
+        result.lastBatchId_ = lastBatchId_;
+        if (itemBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            item_ = java.util.Collections.unmodifiableList(item_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.item_ = item_;
+        } else {
+          result.item_ = itemBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.company.WorkloadProto.serverRFD) {
+          return mergeFrom((com.company.WorkloadProto.serverRFD)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.company.WorkloadProto.serverRFD other) {
+        if (other == com.company.WorkloadProto.serverRFD.getDefaultInstance()) return this;
+        if (other.getRFWId() != 0) {
+          setRFWId(other.getRFWId());
+        }
+        if (other.getLastBatchId() != 0) {
+          setLastBatchId(other.getLastBatchId());
+        }
+        if (itemBuilder_ == null) {
+          if (!other.item_.isEmpty()) {
+            if (item_.isEmpty()) {
+              item_ = other.item_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureItemIsMutable();
+              item_.addAll(other.item_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.item_.isEmpty()) {
+            if (itemBuilder_.isEmpty()) {
+              itemBuilder_.dispose();
+              itemBuilder_ = null;
+              item_ = other.item_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              itemBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getItemFieldBuilder() : null;
+            } else {
+              itemBuilder_.addAllMessages(other.item_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.company.WorkloadProto.serverRFD parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.company.WorkloadProto.serverRFD) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int rFWId_ ;
+      /**
+       * <code>int32 RFWId = 1;</code>
+       * @return The rFWId.
+       */
+      @java.lang.Override
+      public int getRFWId() {
+        return rFWId_;
+      }
+      /**
+       * <code>int32 RFWId = 1;</code>
+       * @param value The rFWId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRFWId(int value) {
+        
+        rFWId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 RFWId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRFWId() {
+        
+        rFWId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int lastBatchId_ ;
+      /**
+       * <code>int32 lastBatchId = 2;</code>
+       * @return The lastBatchId.
+       */
+      @java.lang.Override
+      public int getLastBatchId() {
+        return lastBatchId_;
+      }
+      /**
+       * <code>int32 lastBatchId = 2;</code>
+       * @param value The lastBatchId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLastBatchId(int value) {
+        
+        lastBatchId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 lastBatchId = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLastBatchId() {
+        
+        lastBatchId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<com.company.WorkloadProto.WorkloadItem> item_ =
+        java.util.Collections.emptyList();
+      private void ensureItemIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          item_ = new java.util.ArrayList<com.company.WorkloadProto.WorkloadItem>(item_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.company.WorkloadProto.WorkloadItem, com.company.WorkloadProto.WorkloadItem.Builder, com.company.WorkloadProto.WorkloadItemOrBuilder> itemBuilder_;
+
+      /**
+       * <code>repeated .company.WorkloadItem item = 3;</code>
+       */
+      public java.util.List<com.company.WorkloadProto.WorkloadItem> getItemList() {
+        if (itemBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(item_);
+        } else {
+          return itemBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .company.WorkloadItem item = 3;</code>
+       */
+      public int getItemCount() {
+        if (itemBuilder_ == null) {
+          return item_.size();
+        } else {
+          return itemBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .company.WorkloadItem item = 3;</code>
+       */
+      public com.company.WorkloadProto.WorkloadItem getItem(int index) {
+        if (itemBuilder_ == null) {
+          return item_.get(index);
+        } else {
+          return itemBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .company.WorkloadItem item = 3;</code>
+       */
+      public Builder setItem(
+          int index, com.company.WorkloadProto.WorkloadItem value) {
+        if (itemBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemIsMutable();
+          item_.set(index, value);
+          onChanged();
+        } else {
+          itemBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .company.WorkloadItem item = 3;</code>
+       */
+      public Builder setItem(
+          int index, com.company.WorkloadProto.WorkloadItem.Builder builderForValue) {
+        if (itemBuilder_ == null) {
+          ensureItemIsMutable();
+          item_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          itemBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .company.WorkloadItem item = 3;</code>
+       */
+      public Builder addItem(com.company.WorkloadProto.WorkloadItem value) {
+        if (itemBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemIsMutable();
+          item_.add(value);
+          onChanged();
+        } else {
+          itemBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .company.WorkloadItem item = 3;</code>
+       */
+      public Builder addItem(
+          int index, com.company.WorkloadProto.WorkloadItem value) {
+        if (itemBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemIsMutable();
+          item_.add(index, value);
+          onChanged();
+        } else {
+          itemBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .company.WorkloadItem item = 3;</code>
+       */
+      public Builder addItem(
+          com.company.WorkloadProto.WorkloadItem.Builder builderForValue) {
+        if (itemBuilder_ == null) {
+          ensureItemIsMutable();
+          item_.add(builderForValue.build());
+          onChanged();
+        } else {
+          itemBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .company.WorkloadItem item = 3;</code>
+       */
+      public Builder addItem(
+          int index, com.company.WorkloadProto.WorkloadItem.Builder builderForValue) {
+        if (itemBuilder_ == null) {
+          ensureItemIsMutable();
+          item_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          itemBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .company.WorkloadItem item = 3;</code>
+       */
+      public Builder addAllItem(
+          java.lang.Iterable<? extends com.company.WorkloadProto.WorkloadItem> values) {
+        if (itemBuilder_ == null) {
+          ensureItemIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, item_);
+          onChanged();
+        } else {
+          itemBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .company.WorkloadItem item = 3;</code>
+       */
+      public Builder clearItem() {
+        if (itemBuilder_ == null) {
+          item_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          itemBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .company.WorkloadItem item = 3;</code>
+       */
+      public Builder removeItem(int index) {
+        if (itemBuilder_ == null) {
+          ensureItemIsMutable();
+          item_.remove(index);
+          onChanged();
+        } else {
+          itemBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .company.WorkloadItem item = 3;</code>
+       */
+      public com.company.WorkloadProto.WorkloadItem.Builder getItemBuilder(
+          int index) {
+        return getItemFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .company.WorkloadItem item = 3;</code>
+       */
+      public com.company.WorkloadProto.WorkloadItemOrBuilder getItemOrBuilder(
+          int index) {
+        if (itemBuilder_ == null) {
+          return item_.get(index);  } else {
+          return itemBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .company.WorkloadItem item = 3;</code>
+       */
+      public java.util.List<? extends com.company.WorkloadProto.WorkloadItemOrBuilder> 
+           getItemOrBuilderList() {
+        if (itemBuilder_ != null) {
+          return itemBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(item_);
+        }
+      }
+      /**
+       * <code>repeated .company.WorkloadItem item = 3;</code>
+       */
+      public com.company.WorkloadProto.WorkloadItem.Builder addItemBuilder() {
+        return getItemFieldBuilder().addBuilder(
+            com.company.WorkloadProto.WorkloadItem.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .company.WorkloadItem item = 3;</code>
+       */
+      public com.company.WorkloadProto.WorkloadItem.Builder addItemBuilder(
+          int index) {
+        return getItemFieldBuilder().addBuilder(
+            index, com.company.WorkloadProto.WorkloadItem.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .company.WorkloadItem item = 3;</code>
+       */
+      public java.util.List<com.company.WorkloadProto.WorkloadItem.Builder> 
+           getItemBuilderList() {
+        return getItemFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.company.WorkloadProto.WorkloadItem, com.company.WorkloadProto.WorkloadItem.Builder, com.company.WorkloadProto.WorkloadItemOrBuilder> 
+          getItemFieldBuilder() {
+        if (itemBuilder_ == null) {
+          itemBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.company.WorkloadProto.WorkloadItem, com.company.WorkloadProto.WorkloadItem.Builder, com.company.WorkloadProto.WorkloadItemOrBuilder>(
+                  item_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          item_ = null;
+        }
+        return itemBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:company.serverRFD)
+    }
+
+    // @@protoc_insertion_point(class_scope:company.serverRFD)
+    private static final com.company.WorkloadProto.serverRFD DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.company.WorkloadProto.serverRFD();
+    }
+
+    public static com.company.WorkloadProto.serverRFD getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<serverRFD>
+        PARSER = new com.google.protobuf.AbstractParser<serverRFD>() {
+      @java.lang.Override
+      public serverRFD parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new serverRFD(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<serverRFD> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<serverRFD> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.company.WorkloadProto.serverRFD getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Workload_descriptor;
+    internal_static_company_WorkloadItem_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Workload_fieldAccessorTable;
+      internal_static_company_WorkloadItem_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_company_clientRFW_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_company_clientRFW_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_company_serverRFD_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_company_serverRFD_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -726,21 +2589,39 @@ public final class WorkloadProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\032com/company/Workload.proto\"S\n\010Workload" +
-      "\022\017\n\007cpuUtil\030\001 \001(\005\022\021\n\tnetworkIn\030\002 \001(\005\022\022\n\n" +
-      "networkOut\030\003 \001(\005\022\017\n\007memUtil\030\004 \001(\005B\034\n\013com" +
-      ".companyB\rWorkloadProtob\006proto3"
+      "\n\032com/company/Workload.proto\022\007company\"W\n" +
+      "\014WorkloadItem\022\017\n\007cpuUtil\030\001 \001(\005\022\021\n\tnetwor" +
+      "kIn\030\002 \001(\005\022\022\n\nnetworkOut\030\003 \001(\005\022\017\n\007memUtil" +
+      "\030\004 \001(\001\"v\n\tclientRFW\022\r\n\005RFWId\030\001 \001(\005\022\021\n\tbe" +
+      "nchType\030\002 \001(\005\022\020\n\010workLoad\030\003 \001(\t\022\021\n\tbatch" +
+      "Unit\030\004 \001(\005\022\017\n\007batchId\030\005 \001(\005\022\021\n\tbatchSize" +
+      "\030\006 \001(\005\"T\n\tserverRFD\022\r\n\005RFWId\030\001 \001(\005\022\023\n\013la" +
+      "stBatchId\030\002 \001(\005\022#\n\004item\030\003 \003(\0132\025.company." +
+      "WorkloadItemB\034\n\013com.companyB\rWorkloadPro" +
+      "tob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_Workload_descriptor =
+    internal_static_company_WorkloadItem_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_Workload_fieldAccessorTable = new
+    internal_static_company_WorkloadItem_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Workload_descriptor,
+        internal_static_company_WorkloadItem_descriptor,
         new java.lang.String[] { "CpuUtil", "NetworkIn", "NetworkOut", "MemUtil", });
+    internal_static_company_clientRFW_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_company_clientRFW_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_company_clientRFW_descriptor,
+        new java.lang.String[] { "RFWId", "BenchType", "WorkLoad", "BatchUnit", "BatchId", "BatchSize", });
+    internal_static_company_serverRFD_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_company_serverRFD_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_company_serverRFD_descriptor,
+        new java.lang.String[] { "RFWId", "LastBatchId", "Item", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
