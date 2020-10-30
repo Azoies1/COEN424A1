@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package company;
+package java;
 
-option java_package = "com.company";
+option java_package = "workload";
 option java_outer_classname = "WorkloadProto";
 
 message WorkloadItem{

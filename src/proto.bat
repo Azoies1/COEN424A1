@@ -1,1 +1,1 @@
-protoc --java_out=.\ .\com\company\Workload.proto
+protoc --java_out=.\main\ .\main\workload\Workload.proto
