@@ -7,6 +7,7 @@ public class Server {
         ServerSocket server = new ServerSocket(8887);
         Socket socket = server.accept();
 
+
         System.out.println("Client established");
     }
 }

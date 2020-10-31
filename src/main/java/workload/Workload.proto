@@ -15,7 +15,7 @@ message WorkloadItem{
 message clientRFW{
   int32 RFWId = 1;
   int32 benchType = 2;
-  string workLoad = 3;
+  int32 workLoad = 3;
   int32 batchUnit = 4;
   int32 batchId = 5;
   int32 batchSize = 6;
