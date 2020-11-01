@@ -2,14 +2,16 @@
 import workload.WorkloadProto;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.Socket;
 import java.util.Scanner;
 
 public class Client {
 
-    static int RFWId = 1;
+    private static int RFWId = 1;
 
-    private WorkloadProto.clientRFW.Builder protoSerialization
+    private static WorkloadProto.clientRFW protoSerialization
             (int bench, int workload, int batchUnit, int batchId, int batchSize){
         WorkloadProto.clientRFW.Builder clientRFW = WorkloadProto.clientRFW.newBuilder();
         clientRFW.setRFWId(RFWId);
@@ -19,13 +21,15 @@ public class Client {
         clientRFW.setBatchId(batchId);
         clientRFW.setBatchSize(batchSize);
         RFWId++;
-        return clientRFW;
+        return clientRFW.build();
     }
 
-    private void protoDeserialization(){}
+    private static void protoDeserialization(){}
 
     public static void main (String [] args) throws IOException {
         Socket s = new Socket("localhost", 8887);
+        OutputStream output = s.getOutputStream();
+        InputStream input = s.getInputStream();
 
         System.out.println("Welcome to client for requesting workload data from the server\n");
 
@@ -33,7 +37,7 @@ public class Client {
 
         try {
             while (true) {
-
+                WorkloadProto.clientRFW clientRFW;
                 int bench;
                 int workload;
                 int batchUnit;
@@ -65,8 +69,12 @@ public class Client {
                 System.out.println("Please Enter the Batch Size (batches to return)");
                 batchSize = sc.nextInt();
 
-                System.out.println(bench + " " + workload + " " + batchUnit
-                        + " " + batchId + " " + batchSize + "\n");
+                //serializing proto data
+                clientRFW = protoSerialization(bench,workload,batchUnit
+                        ,batchId ,batchSize);
+
+                output = s.getOutputStream();
+                clientRFW.writeDelimitedTo(output);
             }
         }
         catch (Exception e)
