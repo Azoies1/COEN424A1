@@ -41,10 +41,6 @@ public class CSVreader {
         }
     }
 
-    public static List<String[]> getFileList(int position){
-    	    return csvDataList.get(position);
-    }
-
     public static List<String> getFileData(int benchType, int workload, int lineStart, int lineEnd){
     	    List<String> returnData = new ArrayList<>();
 
