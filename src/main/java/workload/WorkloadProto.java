@@ -14,706 +14,6 @@ public final class WorkloadProto {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface WorkloadItemOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:java.WorkloadItem)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>int32 cpuUtil = 1;</code>
-     * @return The cpuUtil.
-     */
-    int getCpuUtil();
-
-    /**
-     * <code>int32 networkIn = 2;</code>
-     * @return The networkIn.
-     */
-    int getNetworkIn();
-
-    /**
-     * <code>int32 networkOut = 3;</code>
-     * @return The networkOut.
-     */
-    int getNetworkOut();
-
-    /**
-     * <code>double memUtil = 4;</code>
-     * @return The memUtil.
-     */
-    double getMemUtil();
-  }
-  /**
-   * Protobuf type {@code java.WorkloadItem}
-   */
-  public static final class WorkloadItem extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:java.WorkloadItem)
-      WorkloadItemOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use WorkloadItem.newBuilder() to construct.
-    private WorkloadItem(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private WorkloadItem() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new WorkloadItem();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private WorkloadItem(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              cpuUtil_ = input.readInt32();
-              break;
-            }
-            case 16: {
-
-              networkIn_ = input.readInt32();
-              break;
-            }
-            case 24: {
-
-              networkOut_ = input.readInt32();
-              break;
-            }
-            case 33: {
-
-              memUtil_ = input.readDouble();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return workload.WorkloadProto.internal_static_java_WorkloadItem_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return workload.WorkloadProto.internal_static_java_WorkloadItem_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              workload.WorkloadProto.WorkloadItem.class, workload.WorkloadProto.WorkloadItem.Builder.class);
-    }
-
-    public static final int CPUUTIL_FIELD_NUMBER = 1;
-    private int cpuUtil_;
-    /**
-     * <code>int32 cpuUtil = 1;</code>
-     * @return The cpuUtil.
-     */
-    @java.lang.Override
-    public int getCpuUtil() {
-      return cpuUtil_;
-    }
-
-    public static final int NETWORKIN_FIELD_NUMBER = 2;
-    private int networkIn_;
-    /**
-     * <code>int32 networkIn = 2;</code>
-     * @return The networkIn.
-     */
-    @java.lang.Override
-    public int getNetworkIn() {
-      return networkIn_;
-    }
-
-    public static final int NETWORKOUT_FIELD_NUMBER = 3;
-    private int networkOut_;
-    /**
-     * <code>int32 networkOut = 3;</code>
-     * @return The networkOut.
-     */
-    @java.lang.Override
-    public int getNetworkOut() {
-      return networkOut_;
-    }
-
-    public static final int MEMUTIL_FIELD_NUMBER = 4;
-    private double memUtil_;
-    /**
-     * <code>double memUtil = 4;</code>
-     * @return The memUtil.
-     */
-    @java.lang.Override
-    public double getMemUtil() {
-      return memUtil_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (cpuUtil_ != 0) {
-        output.writeInt32(1, cpuUtil_);
-      }
-      if (networkIn_ != 0) {
-        output.writeInt32(2, networkIn_);
-      }
-      if (networkOut_ != 0) {
-        output.writeInt32(3, networkOut_);
-      }
-      if (memUtil_ != 0D) {
-        output.writeDouble(4, memUtil_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (cpuUtil_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, cpuUtil_);
-      }
-      if (networkIn_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, networkIn_);
-      }
-      if (networkOut_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, networkOut_);
-      }
-      if (memUtil_ != 0D) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(4, memUtil_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof workload.WorkloadProto.WorkloadItem)) {
-        return super.equals(obj);
-      }
-      workload.WorkloadProto.WorkloadItem other = (workload.WorkloadProto.WorkloadItem) obj;
-
-      if (getCpuUtil()
-          != other.getCpuUtil()) return false;
-      if (getNetworkIn()
-          != other.getNetworkIn()) return false;
-      if (getNetworkOut()
-          != other.getNetworkOut()) return false;
-      if (java.lang.Double.doubleToLongBits(getMemUtil())
-          != java.lang.Double.doubleToLongBits(
-              other.getMemUtil())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CPUUTIL_FIELD_NUMBER;
-      hash = (53 * hash) + getCpuUtil();
-      hash = (37 * hash) + NETWORKIN_FIELD_NUMBER;
-      hash = (53 * hash) + getNetworkIn();
-      hash = (37 * hash) + NETWORKOUT_FIELD_NUMBER;
-      hash = (53 * hash) + getNetworkOut();
-      hash = (37 * hash) + MEMUTIL_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getMemUtil()));
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static workload.WorkloadProto.WorkloadItem parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static workload.WorkloadProto.WorkloadItem parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static workload.WorkloadProto.WorkloadItem parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static workload.WorkloadProto.WorkloadItem parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static workload.WorkloadProto.WorkloadItem parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static workload.WorkloadProto.WorkloadItem parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static workload.WorkloadProto.WorkloadItem parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static workload.WorkloadProto.WorkloadItem parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static workload.WorkloadProto.WorkloadItem parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static workload.WorkloadProto.WorkloadItem parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static workload.WorkloadProto.WorkloadItem parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static workload.WorkloadProto.WorkloadItem parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(workload.WorkloadProto.WorkloadItem prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code java.WorkloadItem}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:java.WorkloadItem)
-        workload.WorkloadProto.WorkloadItemOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return workload.WorkloadProto.internal_static_java_WorkloadItem_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return workload.WorkloadProto.internal_static_java_WorkloadItem_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                workload.WorkloadProto.WorkloadItem.class, workload.WorkloadProto.WorkloadItem.Builder.class);
-      }
-
-      // Construct using workload.WorkloadProto.WorkloadItem.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        cpuUtil_ = 0;
-
-        networkIn_ = 0;
-
-        networkOut_ = 0;
-
-        memUtil_ = 0D;
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return workload.WorkloadProto.internal_static_java_WorkloadItem_descriptor;
-      }
-
-      @java.lang.Override
-      public workload.WorkloadProto.WorkloadItem getDefaultInstanceForType() {
-        return workload.WorkloadProto.WorkloadItem.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public workload.WorkloadProto.WorkloadItem build() {
-        workload.WorkloadProto.WorkloadItem result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public workload.WorkloadProto.WorkloadItem buildPartial() {
-        workload.WorkloadProto.WorkloadItem result = new workload.WorkloadProto.WorkloadItem(this);
-        result.cpuUtil_ = cpuUtil_;
-        result.networkIn_ = networkIn_;
-        result.networkOut_ = networkOut_;
-        result.memUtil_ = memUtil_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof workload.WorkloadProto.WorkloadItem) {
-          return mergeFrom((workload.WorkloadProto.WorkloadItem)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(workload.WorkloadProto.WorkloadItem other) {
-        if (other == workload.WorkloadProto.WorkloadItem.getDefaultInstance()) return this;
-        if (other.getCpuUtil() != 0) {
-          setCpuUtil(other.getCpuUtil());
-        }
-        if (other.getNetworkIn() != 0) {
-          setNetworkIn(other.getNetworkIn());
-        }
-        if (other.getNetworkOut() != 0) {
-          setNetworkOut(other.getNetworkOut());
-        }
-        if (other.getMemUtil() != 0D) {
-          setMemUtil(other.getMemUtil());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        workload.WorkloadProto.WorkloadItem parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (workload.WorkloadProto.WorkloadItem) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int cpuUtil_ ;
-      /**
-       * <code>int32 cpuUtil = 1;</code>
-       * @return The cpuUtil.
-       */
-      @java.lang.Override
-      public int getCpuUtil() {
-        return cpuUtil_;
-      }
-      /**
-       * <code>int32 cpuUtil = 1;</code>
-       * @param value The cpuUtil to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCpuUtil(int value) {
-        
-        cpuUtil_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 cpuUtil = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCpuUtil() {
-        
-        cpuUtil_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int networkIn_ ;
-      /**
-       * <code>int32 networkIn = 2;</code>
-       * @return The networkIn.
-       */
-      @java.lang.Override
-      public int getNetworkIn() {
-        return networkIn_;
-      }
-      /**
-       * <code>int32 networkIn = 2;</code>
-       * @param value The networkIn to set.
-       * @return This builder for chaining.
-       */
-      public Builder setNetworkIn(int value) {
-        
-        networkIn_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 networkIn = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearNetworkIn() {
-        
-        networkIn_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private int networkOut_ ;
-      /**
-       * <code>int32 networkOut = 3;</code>
-       * @return The networkOut.
-       */
-      @java.lang.Override
-      public int getNetworkOut() {
-        return networkOut_;
-      }
-      /**
-       * <code>int32 networkOut = 3;</code>
-       * @param value The networkOut to set.
-       * @return This builder for chaining.
-       */
-      public Builder setNetworkOut(int value) {
-        
-        networkOut_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 networkOut = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearNetworkOut() {
-        
-        networkOut_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private double memUtil_ ;
-      /**
-       * <code>double memUtil = 4;</code>
-       * @return The memUtil.
-       */
-      @java.lang.Override
-      public double getMemUtil() {
-        return memUtil_;
-      }
-      /**
-       * <code>double memUtil = 4;</code>
-       * @param value The memUtil to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMemUtil(double value) {
-        
-        memUtil_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>double memUtil = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearMemUtil() {
-        
-        memUtil_ = 0D;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:java.WorkloadItem)
-    }
-
-    // @@protoc_insertion_point(class_scope:java.WorkloadItem)
-    private static final workload.WorkloadProto.WorkloadItem DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new workload.WorkloadProto.WorkloadItem();
-    }
-
-    public static workload.WorkloadProto.WorkloadItem getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<WorkloadItem>
-        PARSER = new com.google.protobuf.AbstractParser<WorkloadItem>() {
-      @java.lang.Override
-      public WorkloadItem parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new WorkloadItem(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<WorkloadItem> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<WorkloadItem> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public workload.WorkloadProto.WorkloadItem getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface clientRFWOrBuilder extends
       // @@protoc_insertion_point(interface_extends:java.clientRFW)
       com.google.protobuf.MessageOrBuilder {
@@ -1569,28 +869,29 @@ public final class WorkloadProto {
     int getLastBatchId();
 
     /**
-     * <code>repeated .java.WorkloadItem item = 3;</code>
+     * <code>repeated string item = 3;</code>
+     * @return A list containing the item.
      */
-    java.util.List<workload.WorkloadProto.WorkloadItem> 
+    java.util.List<java.lang.String>
         getItemList();
     /**
-     * <code>repeated .java.WorkloadItem item = 3;</code>
-     */
-    workload.WorkloadProto.WorkloadItem getItem(int index);
-    /**
-     * <code>repeated .java.WorkloadItem item = 3;</code>
+     * <code>repeated string item = 3;</code>
+     * @return The count of item.
      */
     int getItemCount();
     /**
-     * <code>repeated .java.WorkloadItem item = 3;</code>
+     * <code>repeated string item = 3;</code>
+     * @param index The index of the element to return.
+     * @return The item at the given index.
      */
-    java.util.List<? extends workload.WorkloadProto.WorkloadItemOrBuilder> 
-        getItemOrBuilderList();
+    java.lang.String getItem(int index);
     /**
-     * <code>repeated .java.WorkloadItem item = 3;</code>
+     * <code>repeated string item = 3;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the item at the given index.
      */
-    workload.WorkloadProto.WorkloadItemOrBuilder getItemOrBuilder(
-        int index);
+    com.google.protobuf.ByteString
+        getItemBytes(int index);
   }
   /**
    * Protobuf type {@code java.serverRFD}
@@ -1605,7 +906,7 @@ public final class WorkloadProto {
       super(builder);
     }
     private serverRFD() {
-      item_ = java.util.Collections.emptyList();
+      item_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -1650,12 +951,12 @@ public final class WorkloadProto {
               break;
             }
             case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                item_ = new java.util.ArrayList<workload.WorkloadProto.WorkloadItem>();
+                item_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000001;
               }
-              item_.add(
-                  input.readMessage(workload.WorkloadProto.WorkloadItem.parser(), extensionRegistry));
+              item_.add(s);
               break;
             }
             default: {
@@ -1674,7 +975,7 @@ public final class WorkloadProto {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          item_ = java.util.Collections.unmodifiableList(item_);
+          item_ = item_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -1716,43 +1017,38 @@ public final class WorkloadProto {
     }
 
     public static final int ITEM_FIELD_NUMBER = 3;
-    private java.util.List<workload.WorkloadProto.WorkloadItem> item_;
+    private com.google.protobuf.LazyStringList item_;
     /**
-     * <code>repeated .java.WorkloadItem item = 3;</code>
+     * <code>repeated string item = 3;</code>
+     * @return A list containing the item.
      */
-    @java.lang.Override
-    public java.util.List<workload.WorkloadProto.WorkloadItem> getItemList() {
+    public com.google.protobuf.ProtocolStringList
+        getItemList() {
       return item_;
     }
     /**
-     * <code>repeated .java.WorkloadItem item = 3;</code>
+     * <code>repeated string item = 3;</code>
+     * @return The count of item.
      */
-    @java.lang.Override
-    public java.util.List<? extends workload.WorkloadProto.WorkloadItemOrBuilder> 
-        getItemOrBuilderList() {
-      return item_;
-    }
-    /**
-     * <code>repeated .java.WorkloadItem item = 3;</code>
-     */
-    @java.lang.Override
     public int getItemCount() {
       return item_.size();
     }
     /**
-     * <code>repeated .java.WorkloadItem item = 3;</code>
+     * <code>repeated string item = 3;</code>
+     * @param index The index of the element to return.
+     * @return The item at the given index.
      */
-    @java.lang.Override
-    public workload.WorkloadProto.WorkloadItem getItem(int index) {
+    public java.lang.String getItem(int index) {
       return item_.get(index);
     }
     /**
-     * <code>repeated .java.WorkloadItem item = 3;</code>
+     * <code>repeated string item = 3;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the item at the given index.
      */
-    @java.lang.Override
-    public workload.WorkloadProto.WorkloadItemOrBuilder getItemOrBuilder(
-        int index) {
-      return item_.get(index);
+    public com.google.protobuf.ByteString
+        getItemBytes(int index) {
+      return item_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1776,7 +1072,7 @@ public final class WorkloadProto {
         output.writeInt32(2, lastBatchId_);
       }
       for (int i = 0; i < item_.size(); i++) {
-        output.writeMessage(3, item_.get(i));
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, item_.getRaw(i));
       }
       unknownFields.writeTo(output);
     }
@@ -1795,9 +1091,13 @@ public final class WorkloadProto {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, lastBatchId_);
       }
-      for (int i = 0; i < item_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, item_.get(i));
+      {
+        int dataSize = 0;
+        for (int i = 0; i < item_.size(); i++) {
+          dataSize += computeStringSizeNoTag(item_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getItemList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1967,7 +1267,6 @@ public final class WorkloadProto {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getItemFieldBuilder();
         }
       }
       @java.lang.Override
@@ -1977,12 +1276,8 @@ public final class WorkloadProto {
 
         lastBatchId_ = 0;
 
-        if (itemBuilder_ == null) {
-          item_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          itemBuilder_.clear();
-        }
+        item_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -2012,15 +1307,11 @@ public final class WorkloadProto {
         int from_bitField0_ = bitField0_;
         result.rFWId_ = rFWId_;
         result.lastBatchId_ = lastBatchId_;
-        if (itemBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
-            item_ = java.util.Collections.unmodifiableList(item_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.item_ = item_;
-        } else {
-          result.item_ = itemBuilder_.build();
+        if (((bitField0_ & 0x00000001) != 0)) {
+          item_ = item_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
+        result.item_ = item_;
         onBuilt();
         return result;
       }
@@ -2075,31 +1366,15 @@ public final class WorkloadProto {
         if (other.getLastBatchId() != 0) {
           setLastBatchId(other.getLastBatchId());
         }
-        if (itemBuilder_ == null) {
-          if (!other.item_.isEmpty()) {
-            if (item_.isEmpty()) {
-              item_ = other.item_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureItemIsMutable();
-              item_.addAll(other.item_);
-            }
-            onChanged();
+        if (!other.item_.isEmpty()) {
+          if (item_.isEmpty()) {
+            item_ = other.item_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureItemIsMutable();
+            item_.addAll(other.item_);
           }
-        } else {
-          if (!other.item_.isEmpty()) {
-            if (itemBuilder_.isEmpty()) {
-              itemBuilder_.dispose();
-              itemBuilder_ = null;
-              item_ = other.item_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              itemBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getItemFieldBuilder() : null;
-            } else {
-              itemBuilder_.addAllMessages(other.item_);
-            }
-          }
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2193,244 +1468,114 @@ public final class WorkloadProto {
         return this;
       }
 
-      private java.util.List<workload.WorkloadProto.WorkloadItem> item_ =
-        java.util.Collections.emptyList();
+      private com.google.protobuf.LazyStringList item_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureItemIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          item_ = new java.util.ArrayList<workload.WorkloadProto.WorkloadItem>(item_);
+          item_ = new com.google.protobuf.LazyStringArrayList(item_);
           bitField0_ |= 0x00000001;
          }
       }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          workload.WorkloadProto.WorkloadItem, workload.WorkloadProto.WorkloadItem.Builder, workload.WorkloadProto.WorkloadItemOrBuilder> itemBuilder_;
-
       /**
-       * <code>repeated .java.WorkloadItem item = 3;</code>
+       * <code>repeated string item = 3;</code>
+       * @return A list containing the item.
        */
-      public java.util.List<workload.WorkloadProto.WorkloadItem> getItemList() {
-        if (itemBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(item_);
-        } else {
-          return itemBuilder_.getMessageList();
-        }
+      public com.google.protobuf.ProtocolStringList
+          getItemList() {
+        return item_.getUnmodifiableView();
       }
       /**
-       * <code>repeated .java.WorkloadItem item = 3;</code>
+       * <code>repeated string item = 3;</code>
+       * @return The count of item.
        */
       public int getItemCount() {
-        if (itemBuilder_ == null) {
-          return item_.size();
-        } else {
-          return itemBuilder_.getCount();
-        }
+        return item_.size();
       }
       /**
-       * <code>repeated .java.WorkloadItem item = 3;</code>
+       * <code>repeated string item = 3;</code>
+       * @param index The index of the element to return.
+       * @return The item at the given index.
        */
-      public workload.WorkloadProto.WorkloadItem getItem(int index) {
-        if (itemBuilder_ == null) {
-          return item_.get(index);
-        } else {
-          return itemBuilder_.getMessage(index);
-        }
+      public java.lang.String getItem(int index) {
+        return item_.get(index);
       }
       /**
-       * <code>repeated .java.WorkloadItem item = 3;</code>
+       * <code>repeated string item = 3;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the item at the given index.
        */
-      public Builder setItem(
-          int index, workload.WorkloadProto.WorkloadItem value) {
-        if (itemBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureItemIsMutable();
-          item_.set(index, value);
-          onChanged();
-        } else {
-          itemBuilder_.setMessage(index, value);
-        }
-        return this;
+      public com.google.protobuf.ByteString
+          getItemBytes(int index) {
+        return item_.getByteString(index);
       }
       /**
-       * <code>repeated .java.WorkloadItem item = 3;</code>
+       * <code>repeated string item = 3;</code>
+       * @param index The index to set the value at.
+       * @param value The item to set.
+       * @return This builder for chaining.
        */
       public Builder setItem(
-          int index, workload.WorkloadProto.WorkloadItem.Builder builderForValue) {
-        if (itemBuilder_ == null) {
-          ensureItemIsMutable();
-          item_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          itemBuilder_.setMessage(index, builderForValue.build());
-        }
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureItemIsMutable();
+        item_.set(index, value);
+        onChanged();
         return this;
       }
       /**
-       * <code>repeated .java.WorkloadItem item = 3;</code>
-       */
-      public Builder addItem(workload.WorkloadProto.WorkloadItem value) {
-        if (itemBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureItemIsMutable();
-          item_.add(value);
-          onChanged();
-        } else {
-          itemBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .java.WorkloadItem item = 3;</code>
+       * <code>repeated string item = 3;</code>
+       * @param value The item to add.
+       * @return This builder for chaining.
        */
       public Builder addItem(
-          int index, workload.WorkloadProto.WorkloadItem value) {
-        if (itemBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureItemIsMutable();
-          item_.add(index, value);
-          onChanged();
-        } else {
-          itemBuilder_.addMessage(index, value);
-        }
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureItemIsMutable();
+        item_.add(value);
+        onChanged();
         return this;
       }
       /**
-       * <code>repeated .java.WorkloadItem item = 3;</code>
-       */
-      public Builder addItem(
-          workload.WorkloadProto.WorkloadItem.Builder builderForValue) {
-        if (itemBuilder_ == null) {
-          ensureItemIsMutable();
-          item_.add(builderForValue.build());
-          onChanged();
-        } else {
-          itemBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .java.WorkloadItem item = 3;</code>
-       */
-      public Builder addItem(
-          int index, workload.WorkloadProto.WorkloadItem.Builder builderForValue) {
-        if (itemBuilder_ == null) {
-          ensureItemIsMutable();
-          item_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          itemBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .java.WorkloadItem item = 3;</code>
+       * <code>repeated string item = 3;</code>
+       * @param values The item to add.
+       * @return This builder for chaining.
        */
       public Builder addAllItem(
-          java.lang.Iterable<? extends workload.WorkloadProto.WorkloadItem> values) {
-        if (itemBuilder_ == null) {
-          ensureItemIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, item_);
-          onChanged();
-        } else {
-          itemBuilder_.addAllMessages(values);
-        }
+          java.lang.Iterable<java.lang.String> values) {
+        ensureItemIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, item_);
+        onChanged();
         return this;
       }
       /**
-       * <code>repeated .java.WorkloadItem item = 3;</code>
+       * <code>repeated string item = 3;</code>
+       * @return This builder for chaining.
        */
       public Builder clearItem() {
-        if (itemBuilder_ == null) {
-          item_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          itemBuilder_.clear();
-        }
+        item_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
         return this;
       }
       /**
-       * <code>repeated .java.WorkloadItem item = 3;</code>
+       * <code>repeated string item = 3;</code>
+       * @param value The bytes of the item to add.
+       * @return This builder for chaining.
        */
-      public Builder removeItem(int index) {
-        if (itemBuilder_ == null) {
-          ensureItemIsMutable();
-          item_.remove(index);
-          onChanged();
-        } else {
-          itemBuilder_.remove(index);
-        }
+      public Builder addItemBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureItemIsMutable();
+        item_.add(value);
+        onChanged();
         return this;
-      }
-      /**
-       * <code>repeated .java.WorkloadItem item = 3;</code>
-       */
-      public workload.WorkloadProto.WorkloadItem.Builder getItemBuilder(
-          int index) {
-        return getItemFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .java.WorkloadItem item = 3;</code>
-       */
-      public workload.WorkloadProto.WorkloadItemOrBuilder getItemOrBuilder(
-          int index) {
-        if (itemBuilder_ == null) {
-          return item_.get(index);  } else {
-          return itemBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .java.WorkloadItem item = 3;</code>
-       */
-      public java.util.List<? extends workload.WorkloadProto.WorkloadItemOrBuilder> 
-           getItemOrBuilderList() {
-        if (itemBuilder_ != null) {
-          return itemBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(item_);
-        }
-      }
-      /**
-       * <code>repeated .java.WorkloadItem item = 3;</code>
-       */
-      public workload.WorkloadProto.WorkloadItem.Builder addItemBuilder() {
-        return getItemFieldBuilder().addBuilder(
-            workload.WorkloadProto.WorkloadItem.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .java.WorkloadItem item = 3;</code>
-       */
-      public workload.WorkloadProto.WorkloadItem.Builder addItemBuilder(
-          int index) {
-        return getItemFieldBuilder().addBuilder(
-            index, workload.WorkloadProto.WorkloadItem.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .java.WorkloadItem item = 3;</code>
-       */
-      public java.util.List<workload.WorkloadProto.WorkloadItem.Builder> 
-           getItemBuilderList() {
-        return getItemFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          workload.WorkloadProto.WorkloadItem, workload.WorkloadProto.WorkloadItem.Builder, workload.WorkloadProto.WorkloadItemOrBuilder> 
-          getItemFieldBuilder() {
-        if (itemBuilder_ == null) {
-          itemBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              workload.WorkloadProto.WorkloadItem, workload.WorkloadProto.WorkloadItem.Builder, workload.WorkloadProto.WorkloadItemOrBuilder>(
-                  item_,
-                  ((bitField0_ & 0x00000001) != 0),
-                  getParentForChildren(),
-                  isClean());
-          item_ = null;
-        }
-        return itemBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -2486,11 +1631,6 @@ public final class WorkloadProto {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_java_WorkloadItem_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_java_WorkloadItem_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_java_clientRFW_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -2510,34 +1650,25 @@ public final class WorkloadProto {
   static {
     java.lang.String[] descriptorData = {
       "\n!main/java/workload/Workload.proto\022\004jav" +
-      "a\"W\n\014WorkloadItem\022\017\n\007cpuUtil\030\001 \001(\005\022\021\n\tne" +
-      "tworkIn\030\002 \001(\005\022\022\n\nnetworkOut\030\003 \001(\005\022\017\n\007mem" +
-      "Util\030\004 \001(\001\"v\n\tclientRFW\022\r\n\005RFWId\030\001 \001(\005\022\021" +
-      "\n\tbenchType\030\002 \001(\005\022\020\n\010workLoad\030\003 \001(\005\022\021\n\tb" +
-      "atchUnit\030\004 \001(\005\022\017\n\007batchId\030\005 \001(\005\022\021\n\tbatch" +
-      "Size\030\006 \001(\005\"Q\n\tserverRFD\022\r\n\005RFWId\030\001 \001(\005\022\023" +
-      "\n\013lastBatchId\030\002 \001(\005\022 \n\004item\030\003 \003(\0132\022.java" +
-      ".WorkloadItemB\031\n\010workloadB\rWorkloadProto" +
-      "b\006proto3"
+      "a\"v\n\tclientRFW\022\r\n\005RFWId\030\001 \001(\005\022\021\n\tbenchTy" +
+      "pe\030\002 \001(\005\022\020\n\010workLoad\030\003 \001(\005\022\021\n\tbatchUnit\030" +
+      "\004 \001(\005\022\017\n\007batchId\030\005 \001(\005\022\021\n\tbatchSize\030\006 \001(" +
+      "\005\"=\n\tserverRFD\022\r\n\005RFWId\030\001 \001(\005\022\023\n\013lastBat" +
+      "chId\030\002 \001(\005\022\014\n\004item\030\003 \003(\tB\031\n\010workloadB\rWo" +
+      "rkloadProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_java_WorkloadItem_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_java_WorkloadItem_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_java_WorkloadItem_descriptor,
-        new java.lang.String[] { "CpuUtil", "NetworkIn", "NetworkOut", "MemUtil", });
     internal_static_java_clientRFW_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(0);
     internal_static_java_clientRFW_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_java_clientRFW_descriptor,
         new java.lang.String[] { "RFWId", "BenchType", "WorkLoad", "BatchUnit", "BatchId", "BatchSize", });
     internal_static_java_serverRFD_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_java_serverRFD_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_java_serverRFD_descriptor,
