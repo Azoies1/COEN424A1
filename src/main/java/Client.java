@@ -11,21 +11,6 @@ public class Client {
 
     private static int RFWId = 1;
 
-    private static WorkloadProto.clientRFW protoSerialization
-            (int bench, int workload, int batchUnit, int batchId, int batchSize){
-        WorkloadProto.clientRFW.Builder clientRFW = WorkloadProto.clientRFW.newBuilder();
-        clientRFW.setRFWId(RFWId);
-        clientRFW.setBenchType(bench);
-        clientRFW.setWorkLoad(workload);
-        clientRFW.setBatchUnit(batchUnit);
-        clientRFW.setBatchId(batchId);
-        clientRFW.setBatchSize(batchSize);
-        RFWId++;
-        return clientRFW.build();
-    }
-
-    private static void protoDeserialization(){}
-
     public static void main (String [] args) throws IOException {
         Socket s = new Socket("localhost", 8887);
         OutputStream output = s.getOutputStream();
@@ -37,7 +22,8 @@ public class Client {
 
         try {
             while (true) {
-                WorkloadProto.clientRFW clientRFW;
+                WorkloadProto.clientRFW clientRFW = null;
+                WorkloadProto.serverRFD serverRFD = null;
                 int bench;
                 int workload;
                 int batchUnit;
@@ -69,18 +55,44 @@ public class Client {
                 System.out.println("Please Enter the Batch Size (batches to return)");
                 batchSize = sc.nextInt();
 
-                //serializing proto data
-                clientRFW = protoSerialization(bench,workload,batchUnit
-                        ,batchId ,batchSize);
+                //serializing protobuff data
+                clientRFW = protoSerialization(bench, workload, batchUnit
+                        , batchId, batchSize);
 
+                //sending protobuff data
                 output = s.getOutputStream();
                 clientRFW.writeDelimitedTo(output);
+
+                //retrieve data from the server
+                while ((serverRFD = serverRFD.parseDelimitedFrom(input)) != null) {
+                    System.out.println("\nServer Data Received. RFW Id: " + serverRFD.getRFWId());
+                    System.out.println("Last Batch Id: " + serverRFD.getLastBatchId());
+                    System.out.println("Data Size: " + serverRFD.getItemCount());
+                    System.out.println("Data:");
+                    for (String item: serverRFD.getItemList()){
+                        System.out.println(item);
+                    }
+                    System.out.println("---------------\n");
+                }
             }
         }
         catch (Exception e)
         {
             System.out.println(e);
         }
+    }
+
+    private static WorkloadProto.clientRFW protoSerialization
+            (int bench, int workload, int batchUnit, int batchId, int batchSize){
+        WorkloadProto.clientRFW.Builder clientRFW = WorkloadProto.clientRFW.newBuilder();
+        clientRFW.setRFWId(RFWId);
+        clientRFW.setBenchType(bench);
+        clientRFW.setWorkLoad(workload);
+        clientRFW.setBatchUnit(batchUnit);
+        clientRFW.setBatchId(batchId);
+        clientRFW.setBatchSize(batchSize);
+        RFWId++;
+        return clientRFW.build();
     }
 
 }

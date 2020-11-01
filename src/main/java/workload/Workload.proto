@@ -5,13 +5,6 @@ package java;
 option java_package = "workload";
 option java_outer_classname = "WorkloadProto";
 
-message WorkloadItem{
-  int32 cpuUtil = 1;
-  int32 networkIn = 2;
-  int32 networkOut = 3;
-  double memUtil = 4;
-}
-
 message clientRFW{
   int32 RFWId = 1;
   int32 benchType = 2;
@@ -24,7 +17,7 @@ message clientRFW{
 message serverRFD{
   int32 RFWId =1;
   int32 lastBatchId = 2;
-  repeated WorkloadItem item = 3;
+  repeated string item = 3;
 }
 
 
