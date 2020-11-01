@@ -25,7 +25,9 @@ public class Client {
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Connection Error: Server is not started yet.\n"
+                    + "Please exit the client and start again when the server is up");
+            System.exit(0);
         }
     }
 
