@@ -8,9 +8,22 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CSVreader {
-    private static List<List<String[]>> csvDataList = new ArrayList<>();
 
-    	public static void Serialize(String csvFile) {
+    private List<List<String[]>> csvDataList = new ArrayList<>();
+
+    public void readCSVFiles(){
+        String csvFile = "./src/main/java/data/DVD-testing.csv";
+        readCSVFile(csvFile);
+        csvFile = "./src/main/java/data/DVD-training.csv";
+        readCSVFile(csvFile);
+        csvFile = "./src/main/java/data/NDBench-testing.csv";
+        readCSVFile(csvFile);
+        csvFile = "./src/main/java/data/NDBench-training.csv";
+        readCSVFile(csvFile);
+        System.out.println("Data Files read\n");
+    }
+
+    public void readCSVFile(String csvFile) {
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
@@ -41,7 +54,7 @@ public class CSVreader {
         }
     }
 
-    public static List<String> getFileData(int benchType, int workload, int lineStart, int lineEnd){
+    public List<String> getFileData(int benchType, int workload, int lineStart, int lineEnd){
     	    List<String> returnData = new ArrayList<>();
 
     	    //Get the data of the file

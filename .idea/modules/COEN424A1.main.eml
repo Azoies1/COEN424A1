@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inheritJdk="true">
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$/../../src/main"/>
+	<levels>
+		<level name="Gradle: org.json:json:20141113" value="project"/>
+		<level name="Gradle: com.google.protobuf:protobuf-java:3.11.0" value="project"/>
+		<level name="Gradle: com.google.code.gson:gson:2.8.6" value="project"/>
+	</levels>
+</component>

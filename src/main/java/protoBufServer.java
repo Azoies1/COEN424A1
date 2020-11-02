@@ -8,16 +8,17 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.List;
 
-public class Server {
+public class protoBufServer {
 
-    private ServerSocket server;
-    private Socket socket;
-    private InputStream input;
-    private OutputStream output;
-    Server(){
+    private CSVreader csVreader = null;
+    private ServerSocket server = null;
+    private Socket socket = null;
+    private InputStream input = null;
+    private OutputStream output = null;
+    protoBufServer(int port){
         try {
-            server = new ServerSocket(8887);
-            System.out.println("Server started");
+            server = new ServerSocket(port);
+            System.out.println("ProtoBuf Server started");
             System.out.println("Waiting for client connection");
             socket = server.accept();
             System.out.println("Client established");
@@ -38,6 +39,7 @@ public class Server {
         //receive data from the client
         while ((clientRFW = clientRFW.parseDelimitedFrom(input)) != null) {
             System.out.println("\nClient data received. Client RFW id: " + clientRFW.getRFWId());
+            System.out.println(clientRFW.toByteArray());
             System.out.println(clientRFW.toString());
             List<String> data = readRfwData(clientRFW);
             int lastBatchId = clientRFW.getBatchId() + clientRFW.getBatchSize();
@@ -51,15 +53,8 @@ public class Server {
 
     //reading and setting the CSV files in the CSVreader class
     private void readCSVFiles(){
-        String csvFile = "./src/main/java/data/DVD-testing.csv";
-        CSVreader.Serialize(csvFile);
-        csvFile = "./src/main/java/data/DVD-training.csv";
-        CSVreader.Serialize(csvFile);
-        csvFile = "./src/main/java/data/NDBench-testing.csv";
-        CSVreader.Serialize(csvFile);
-        csvFile = "./src/main/java/data/NDBench-training.csv";
-        CSVreader.Serialize(csvFile);
-        System.out.println("Data Files read\n");
+        csVreader = new CSVreader();
+        csVreader.readCSVFiles();
     }
 
     //retrieve the list of data from the csv file with the protobuff data
@@ -71,7 +66,7 @@ public class Server {
 
         int lineStart = batchUnit * (batchId);
         int lineEnd = batchUnit * (batchId + batchSize);
-        return CSVreader.getFileData(clientRFW.getBenchType() - 1, workload, lineStart, lineEnd);
+        return csVreader.getFileData(clientRFW.getBenchType() - 1, workload, lineStart, lineEnd);
     }
 
     //Proto buff serialization of the data
@@ -86,9 +81,10 @@ public class Server {
     //Closing the outputStream, inputStream, and the socket
     private void closeServer(){
         try {
-            input.close();
-            output.close();
-            socket.close();
+            if (input != null) input.close();
+            if (output != null) output.close();
+            if (socket != null) socket.close();
+            System.exit(0);
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -97,7 +93,8 @@ public class Server {
     }
 
     public static void main(String[] args) throws IOException {
-        Server server = new Server();
+        //Potential to use the args for port number
+        protoBufServer server = new protoBufServer(8877);
         server.readCSVFiles();
         server.clientCommunication();
         server.closeServer();
