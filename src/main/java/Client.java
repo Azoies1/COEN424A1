@@ -20,17 +20,17 @@ public class Client {
     private InputStream jsonInput = null;
     private Socket jsonSocket = null;
 
-    Client(int protoPort, int jsonPort)
+    Client(String ipAddress, int protoPort, int jsonPort)
     {
         try {
             //ProtoBuf Server socket connection
-            protoSocket = new Socket("localhost", protoPort);
+            protoSocket = new Socket(ipAddress, protoPort);
             System.out.println("Connected to the protoBuf server: " + protoSocket.getRemoteSocketAddress());
             protoOutput = protoSocket.getOutputStream();
             protoInput = protoSocket.getInputStream();
 
             //Json Server socket connection
-            jsonSocket = new Socket("localhost", jsonPort);
+            jsonSocket = new Socket(ipAddress, jsonPort);
             System.out.println("Connected to the json server: " + jsonSocket.getRemoteSocketAddress() + "\n");
             jsonOutput = jsonSocket.getOutputStream();
             jsonInput = jsonSocket.getInputStream();
@@ -253,7 +253,7 @@ public class Client {
         //Starting the client object with two server ports
         //The first  port is to connect to the protoBuf server
         //The second  port is to connect to the JSON server
-        Client client = new Client(8877, 5588);
+        Client client = new Client("localhost",8877, 5588);
         client.serverCommunication();
     }
 
