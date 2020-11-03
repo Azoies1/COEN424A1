@@ -171,8 +171,7 @@ public class Client {
         WorkloadProto.serverRFD serverRFD = null;
         //retrieve data from the server
         while ((serverRFD = serverRFD.parseDelimitedFrom(protoInput)) != null) {
-            System.out.println(serverRFD.toByteArray());
-            System.out.println(serverRFD.toString());
+            System.out.println("Serialized data: " + serverRFD.toByteArray());
             System.out.println("\nServer Data Received. RFW Id: " + serverRFD.getRFWId());
             System.out.println("Last Batch Id: " + serverRFD.getLastBatchId());
             System.out.println("Data Size: " + serverRFD.getItemCount());
@@ -214,6 +213,9 @@ public class Client {
         BufferedReader in = new BufferedReader(new InputStreamReader(jsonInput));
         while ( (jsonData = in.readLine()) != null )
         {
+            //Print serialized data
+            System.out.println("Serialized data: " + jsonData);
+
             //Deserialize the message
             Gson gson = new Gson();
             rfdModel rfdData = gson.fromJson(jsonData, rfdModel.class);
@@ -253,7 +255,7 @@ public class Client {
         //Starting the client object with two server ports
         //The first  port is to connect to the protoBuf server
         //The second  port is to connect to the JSON server
-        Client client = new Client("localhost",8877, 5588);
+        Client client = new Client("18.222.153.47",8877, 5588);
         client.serverCommunication();
     }
 

@@ -25,7 +25,7 @@ public class protoBufServer {
             input = socket.getInputStream();
             output = socket.getOutputStream();
         } catch (IOException e) {
-            e.printStackTrace();
+            closeServer();
         }
     }
 
@@ -39,13 +39,13 @@ public class protoBufServer {
         //receive data from the client
         while ((clientRFW = clientRFW.parseDelimitedFrom(input)) != null) {
             System.out.println("\nClient data received. Client RFW id: " + clientRFW.getRFWId());
-            System.out.println(clientRFW.toByteArray());
+            System.out.println("Serialized data: " + clientRFW.toByteArray());
             System.out.println(clientRFW.toString());
             List<String> data = readRfwData(clientRFW);
             int lastBatchId = clientRFW.getBatchId() + clientRFW.getBatchSize();
 
-            System.out.println("Serializing and sending the data to the client\n");
             //Serializing the data with Protobuff and sending it to the client
+            System.out.println("Serializing and sending the data to the client\n");
             serverRFD = protoSerialization(clientRFW.getRFWId(), lastBatchId, data);
             serverRFD.writeDelimitedTo(output);
         }
@@ -53,8 +53,14 @@ public class protoBufServer {
 
     //reading and setting the CSV files in the CSVreader class
     private void readCSVFiles(){
-        csVreader = new CSVreader();
-        csVreader.readCSVFiles();
+        try {
+            csVreader = new CSVreader();
+            csVreader.readCSVFiles();
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+            closeServer();
+        }
     }
 
     //retrieve the list of data from the csv file with the protobuff data

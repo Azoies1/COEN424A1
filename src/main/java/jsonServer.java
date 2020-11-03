@@ -25,7 +25,7 @@ public class jsonServer {
             input = socket.getInputStream();
             output = socket.getOutputStream();
         } catch (IOException e) {
-            e.printStackTrace();
+            closeServer();
         }
     }
 
@@ -41,7 +41,7 @@ public class jsonServer {
             rfwModel rfwData = gson.fromJson(jsonData, rfwModel.class);
 
             System.out.println("\nClient serialized data received. Client RFW id: " + rfwData.RFWId);
-            System.out.println(jsonData);
+            System.out.println("Serialized data: " + jsonData);
             List<String> data = readRfwData(rfwData);
             int lastBatchId = rfwData.batchId + rfwData.batchSize;
 
@@ -57,8 +57,14 @@ public class jsonServer {
 
     //reading and setting the CSV files in the CSVreader class
     private void readCSVFiles(){
-        csVreader = new CSVreader();
-        csVreader.readCSVFiles();
+        try {
+            csVreader = new CSVreader();
+            csVreader.readCSVFiles();
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+            closeServer();
+        }
     }
 
     //retrieve the list of data from the csv file with the JSON data

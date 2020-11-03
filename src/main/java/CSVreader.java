@@ -12,15 +12,20 @@ public class CSVreader {
     private List<List<String[]>> csvDataList = new ArrayList<>();
 
     public void readCSVFiles(){
-        String csvFile = "./src/main/java/data/DVD-testing.csv";
-        readCSVFile(csvFile);
-        csvFile = "./src/main/java/data/DVD-training.csv";
-        readCSVFile(csvFile);
-        csvFile = "./src/main/java/data/NDBench-testing.csv";
-        readCSVFile(csvFile);
-        csvFile = "./src/main/java/data/NDBench-training.csv";
-        readCSVFile(csvFile);
-        System.out.println("Data Files read\n");
+        try {
+            String csvFile = "./DVD-testing.csv";
+            readCSVFile(csvFile);
+            csvFile = "./DVD-training.csv";
+            readCSVFile(csvFile);
+            csvFile = "./NDBench-testing.csv";
+            readCSVFile(csvFile);
+            csvFile = "./NDBench-training.csv";
+            readCSVFile(csvFile);
+            System.out.println("Data Files read\n");
+        }catch (Exception e)
+        {
+            throw e;
+        }
     }
 
     public void readCSVFile(String csvFile) {
