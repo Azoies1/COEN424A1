@@ -238,9 +238,9 @@ public class Client {
         try {
             if (protoInput != null) protoInput.close();
             if (protoOutput != null) protoOutput.close();
-            if (protoSocket != null) protoSocket.close();
             if (jsonInput != null) jsonInput.close();
             if (jsonOutput != null) jsonOutput.close();
+            if (protoSocket != null) protoSocket.close();
             if (jsonSocket != null) jsonSocket.close();
             System.exit(0);
         } catch (UnknownHostException e) {
